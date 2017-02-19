@@ -13,8 +13,6 @@ def eliminate(values):
     """
     
     GRID_LENGTH = 81
-    EMPTY_VALUE = '.'
-    ANY_VALUE = '123456789'
     
     assert len(values) == GRID_LENGTH, "Input grid must be a string of length 81 (9x9)"
     
