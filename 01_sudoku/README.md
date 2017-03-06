@@ -1,5 +1,5 @@
 # Solving a Sudoku with AI
-This repository contains the sudoku assignments of the Udacity's [Artificial Intelligence NanoDegree](https://classroom.udacity.com/nanodegrees/nd889/syllabus).
+This repository contains the sudoku assignments of the Udacity's [Artificial Intelligence NanoDegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
 ![Sudoku cover](https://raw.githubusercontent.com/miguelusque/artificial-intelligence--sudoku/master/cover.jpg)
 
