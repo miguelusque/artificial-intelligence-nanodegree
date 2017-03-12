@@ -2,7 +2,7 @@
 # Building a Game-playing Agent
 This repository contains the 'isolation' project of the Udacity's [Artificial Intelligence NanoDegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
-![Isolation cover](https://raw.githubusercontent.com/miguelangel/artificial-intelligence--isolation/master/cover.jpg)
+![Isolation cover](https://github.com/miguelangel/artificial-intelligence-nanodegree--isolation/raw/master/cover.jpg)
 
 ## Synopsis
 
