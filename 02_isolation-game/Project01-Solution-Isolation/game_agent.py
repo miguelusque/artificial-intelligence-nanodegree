@@ -13,6 +13,7 @@ class Timeout(Exception):
     """Subclass base exception for code clarity."""
     pass
 
+
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player.
@@ -36,16 +37,25 @@ def custom_score(game, player):
         The heuristic value of the current game state to the specified player.
     """
 
-    # TODO: OPTIMIZE      
+    # Check if player is looser.
+    # Please notice that 'game.is_loser(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  ;-)
     player_moves = len(game.get_legal_moves(player))
     if player_moves == 0 and game.active_player == player:
         return float("-inf")
 
+    # Check if player is winner.
+    # Please notice that 'game.is_winner(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  :-)
     opp_player_moves = len(game.get_legal_moves(game.get_opponent(player)))
     if opp_player_moves == 0 and game.active_player != player:
         return float("inf")
 
-    return float(player_moves - opp_player_moves)
+    # Return the difference of moves between the active player moves and the opponent's.
+    return float(player_moves - 2*opp_player_moves)
+
 
 
 class CustomPlayer:
@@ -138,13 +148,20 @@ class CustomPlayer:
             # here in order to avoid timeout. The try/except block will
             # automatically catch the exception raised by the search method
             # when the timer gets close to expiring
+
+            if self.method == 'minimax':
+                search_method = self.minimax
+            else: # use alphabeta by default
+                search_method = self.alphabeta
+
             if self.iterative:
                 depth = 1
-                while True:
-                    next_move = self.minimax(game, depth)[1]
+                value = 0
+                while value != float("inf") and value != float("-inf"):
+                    value, next_move = search_method(game, depth)
                     depth += 1
             else:
-                next_move = self.minimax(game, self.search_depth)[1]
+                next_move = search_method(game, self.search_depth)[1]
 
         except Timeout:
             # Do nothing
@@ -184,23 +201,23 @@ class CustomPlayer:
                 to pass the project unit tests; you cannot call any other
                 evaluation function directly.
         """
-        #Check if timeout
+        
+        # Check if timeout
         if self.time_left() < self.TIMER_THRESHOLD:
             raise Timeout()
 
-        #Check if there are available moves
+        # Check if there are available moves
         available_moves = game.get_legal_moves()
         if not available_moves:
             return (float("-inf"), (-1, -1)) if game.active_player == self else (float("inf"), (-1, -1))
 
-        values = []
         if depth > 1:
-            for move in available_moves:
-                values.append((self.minimax(game.forecast_move(move), depth - 1, not maximizing_player), move))       
+            # Use recursion to navigate until the desired depth
+            values = [(self.minimax(game.forecast_move(move), depth - 1, not maximizing_player)[0], move) for move in available_moves]
         else:
-            for move in available_moves:
-                values.append((self.score(game.forecast_move(move), self), move))
-
+            values = [(self.score(game.forecast_move(move), self), move) for move in available_moves]
+        
+        # Return max value if it is a MAX level or min value otherwise.
         return max(values) if maximizing_player else min(values)
 
 
@@ -242,15 +259,40 @@ class CustomPlayer:
                 to pass the project unit tests; you cannot call any other
                 evaluation function directly.
         """
-        print("\nCustomPlayer.alphabeta")
-        print("\tdepth: ", depth)
-        print("\talpha: ", alpha)
-        print("\ttbeta: ", beta)
-        print("\tmaximizing_player: ", maximizing_player)
 
-
+        # Check if timeout
         if self.time_left() < self.TIMER_THRESHOLD:
             raise Timeout()
 
-        # TODO: finish this function!
-        raise NotImplementedError
+        # Check if there are available moves
+        available_moves = game.get_legal_moves()
+        if not available_moves:
+            return (float("-inf"), (-1, -1)) if game.active_player == self else (float("inf"), (-1, -1))
+        
+        values = []
+        for move in available_moves:
+            if depth > 1:
+                # Use recursion to navigate until the desired depth
+                value = self.alphabeta(game.forecast_move(move), depth - 1, alpha, beta, not maximizing_player)[0]
+            else:
+                # Score this level
+                value = self.score(game.forecast_move(move), self)
+
+            values.append((value, move))
+
+            if maximizing_player:
+                # Check if it is possible to prune
+                if value >= beta:
+                    break
+                # Update alpha when needed
+                if value > alpha:
+                    alpha = value
+            else:
+                # Check if it is possible to prune
+                if value <= alpha:
+                    break
+                # Update beta when needed
+                if value < beta:
+                    beta = value
+
+        return max(values) if maximizing_player else min(values)
