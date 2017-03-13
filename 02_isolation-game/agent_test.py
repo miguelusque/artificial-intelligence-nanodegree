@@ -275,7 +275,7 @@ class Project1Test(unittest.TestCase):
                              "branch being searched."))
 
     timeout(5)
-    # @unittest.skip("Skip alphabeta test.")  # Uncomment this line to skip test
+    @unittest.skip("Skip alphabeta test.")  # Uncomment this line to skip test
     def test_alphabeta_interface(self):
         """ Test CustomPlayer.alphabeta interface with simple input """
         h, w = 9, 9  # board size
@@ -306,7 +306,7 @@ class Project1Test(unittest.TestCase):
                              "branch being searched."))
 
     @timeout(5)
-    # @unittest.skip("Skip get_move test.")  # Uncomment this line to skip test
+    #@unittest.skip("Skip get_move test.")  # Uncomment this line to skip test
     def test_get_move_interface(self):
         """ Test CustomPlayer.get_move interface with simple input """
         h, w = 9, 9  # board size
@@ -423,7 +423,7 @@ class Project1Test(unittest.TestCase):
                 method, test_depth, expected_moves[idx // 2], move))
 
     @timeout(20)
-    # @unittest.skip("Skip alpha-beta test.")  # Uncomment this line to skip test
+    @unittest.skip("Skip alpha-beta test.")  # Uncomment this line to skip test
     def test_alphabeta(self):
         """ Test CustomPlayer.alphabeta
 
@@ -514,7 +514,6 @@ class Project1Test(unittest.TestCase):
         exact_counts = [(8, 8), (32, 10), (160, 39), (603, 35), (1861, 54), (3912, 62)]
 
         for idx in range(len(origins)):
-
             # set the initial timer high enough that the search will not
             # timeout before triggering the dynamic timer to halt by visiting
             # the expected number of nodes
@@ -524,6 +523,7 @@ class Project1Test(unittest.TestCase):
             agentUT, board = self.initAUT(-1, eval_fn, True, method,
                                           origins[idx], adversary_location,
                                           w, h)
+          
             legal_moves = board.get_legal_moves()
             chosen_move = agentUT.get_move(board, legal_moves, timer.time_left)
 

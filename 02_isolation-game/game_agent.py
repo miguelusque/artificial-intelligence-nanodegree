@@ -13,7 +13,6 @@ class Timeout(Exception):
     """Subclass base exception for code clarity."""
     pass
 
-
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player.
@@ -37,8 +36,16 @@ def custom_score(game, player):
         The heuristic value of the current game state to the specified player.
     """
 
-    # TODO: finish this function!
-    raise NotImplementedError
+    # TODO: OPTIMIZE      
+    player_moves = len(game.get_legal_moves(player))
+    if player_moves == 0 and game.active_player == player:
+        return float("-inf")
+
+    opp_player_moves = len(game.get_legal_moves(game.get_opponent(player)))
+    if opp_player_moves == 0 and game.active_player != player:
+        return float("inf")
+
+    return float(player_moves - opp_player_moves)
 
 
 class CustomPlayer:
@@ -115,28 +122,36 @@ class CustomPlayer:
             Board coordinates corresponding to a legal move; may return
             (-1, -1) if there are no available legal moves.
         """
-
         self.time_left = time_left
-
-        # TODO: finish this function!
 
         # Perform any required initializations, including selecting an initial
         # move from the game board (i.e., an opening book), or returning
         # immediately if there are no legal moves
+        if not legal_moves:
+            return (-1, -1)
+
+        # Get first move in case of time out
+        next_move = legal_moves[0]
 
         try:
             # The search method call (alpha beta or minimax) should happen in
             # here in order to avoid timeout. The try/except block will
             # automatically catch the exception raised by the search method
             # when the timer gets close to expiring
-            pass
+            if self.iterative:
+                depth = 1
+                while True:
+                    next_move = self.minimax(game, depth)[1]
+                    depth += 1
+            else:
+                next_move = self.minimax(game, self.search_depth)[1]
 
         except Timeout:
-            # Handle any actions required at timeout, if necessary
+            # Do nothing
             pass
 
         # Return the best move from the last completed search iteration
-        raise NotImplementedError
+        return next_move
 
     def minimax(self, game, depth, maximizing_player=True):
         """Implement the minimax search algorithm as described in the lectures.
@@ -169,11 +184,25 @@ class CustomPlayer:
                 to pass the project unit tests; you cannot call any other
                 evaluation function directly.
         """
+        #Check if timeout
         if self.time_left() < self.TIMER_THRESHOLD:
             raise Timeout()
 
-        # TODO: finish this function!
-        raise NotImplementedError
+        #Check if there are available moves
+        available_moves = game.get_legal_moves()
+        if not available_moves:
+            return (float("-inf"), (-1, -1)) if game.active_player == self else (float("inf"), (-1, -1))
+
+        values = []
+        if depth > 1:
+            for move in available_moves:
+                values.append((self.minimax(game.forecast_move(move), depth - 1, not maximizing_player), move))       
+        else:
+            for move in available_moves:
+                values.append((self.score(game.forecast_move(move), self), move))
+
+        return max(values) if maximizing_player else min(values)
+
 
     def alphabeta(self, game, depth, alpha=float("-inf"), beta=float("inf"), maximizing_player=True):
         """Implement minimax search with alpha-beta pruning as described in the
@@ -213,6 +242,13 @@ class CustomPlayer:
                 to pass the project unit tests; you cannot call any other
                 evaluation function directly.
         """
+        print("\nCustomPlayer.alphabeta")
+        print("\tdepth: ", depth)
+        print("\talpha: ", alpha)
+        print("\ttbeta: ", beta)
+        print("\tmaximizing_player: ", maximizing_player)
+
+
         if self.time_left() < self.TIMER_THRESHOLD:
             raise Timeout()
 

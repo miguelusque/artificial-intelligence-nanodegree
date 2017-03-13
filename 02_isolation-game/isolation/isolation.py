@@ -279,7 +279,6 @@ class Board(object):
         p2_loc = self.__last_player_move__[self.__player_2__]
 
         out = ''
-
         for i in range(self.height):
             out += ' | '
 
