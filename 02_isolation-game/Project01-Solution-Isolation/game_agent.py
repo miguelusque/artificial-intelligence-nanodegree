@@ -13,10 +13,55 @@ class Timeout(Exception):
     """Subclass base exception for code clarity."""
     pass
 
-
 def custom_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
-    of the given player.
+    of the given player. 
+
+    Note: this function should be called from within a Player instance as
+    `self.score()` -- you should not need to call this function directly.
+
+    Parameters
+    ----------
+    game : `isolation.Board`
+        An instance of `isolation.Board` encoding the current state of the
+        game (e.g., player locations and blocked cells).
+
+    player : object
+        A player instance in the current game (i.e., an object corresponding to
+        one of the player objects `game.__player_1__` or `game.__player_2__`.)
+
+    Returns
+    -------
+    float
+        The heuristic value of the current game state to the specified player.
+    """
+
+    # Check if player is looser.
+    # Please notice that 'game.is_loser(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  ;-)
+    player_legal_moves = game.get_legal_moves(player)
+    player_moves = len(player_legal_moves)
+    if player_moves == 0 and game.active_player == player:
+        return float("-inf")
+
+    # Check if player is winner.
+    # Please notice that 'game.is_winner(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  :-)
+    opp_player_legal_moves = game.get_legal_moves(game.get_opponent(player))
+    opp_player_moves = len(opp_player_legal_moves)
+    if opp_player_moves == 0 and game.active_player != player:
+        return float("inf")
+
+    # Return the difference of moves between the active player moves and the opponent's.
+    opp_player_future_attack = [x  for x in player_legal_moves if x in opp_player_legal_moves]
+    return float(len(opp_player_future_attack)*2 + player_moves - opp_player_moves)
+
+def easy_score(game, player):
+    """Calculate the heuristic value of a game state from the point of view
+    of the given player. It calculates the difference of moves between the
+    active player moves and the opponent's.
 
     Note: this function should be called from within a Player instance as
     `self.score()` -- you should not need to call this function directly.
@@ -54,9 +99,52 @@ def custom_score(game, player):
         return float("inf")
 
     # Return the difference of moves between the active player moves and the opponent's.
+    return float(player_moves - opp_player_moves)
+
+
+def offensive_score(game, player):
+    """Calculate the heuristic value of a game state from the point of view
+    of the given player. It calculates the difference of moves between the
+    active player moves and twice the opponent's.
+
+
+    Note: this function should be called from within a Player instance as
+    `self.score()` -- you should not need to call this function directly.
+
+    Parameters
+    ----------
+    game : `isolation.Board`
+        An instance of `isolation.Board` encoding the current state of the
+        game (e.g., player locations and blocked cells).
+
+    player : object
+        A player instance in the current game (i.e., an object corresponding to
+        one of the player objects `game.__player_1__` or `game.__player_2__`.)
+
+    Returns
+    -------
+    float
+        The heuristic value of the current game state to the specified player.
+    """
+
+    # Check if player is looser.
+    # Please notice that 'game.is_loser(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  ;-)
+    player_moves = len(game.get_legal_moves(player))
+    if player_moves == 0 and game.active_player == player:
+        return float("-inf")
+
+    # Check if player is winner.
+    # Please notice that 'game.is_winner(player)' function is not used to improve  
+    # the performance (game.get_legal_moves(player) is invoked once; otherwise it 
+    # would be invoked twice).  :-)
+    opp_player_moves = len(game.get_legal_moves(game.get_opponent(player)))
+    if opp_player_moves == 0 and game.active_player != player:
+        return float("inf")
+
+    # Return the difference of moves between the active player moves and twice the opponent's.
     return float(player_moves - 2*opp_player_moves)
-
-
 
 class CustomPlayer:
     """Game-playing agent that chooses a move using your evaluation function
