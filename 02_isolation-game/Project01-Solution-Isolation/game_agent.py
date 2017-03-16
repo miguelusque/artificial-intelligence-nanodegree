@@ -14,6 +14,10 @@ class Timeout(Exception):
     pass
 
 def custom_score(game, player):
+    """Method to test the different score heuristics"""
+    return chaser_score(game, player)
+
+def chaser_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
     of the given player. 
 
@@ -54,9 +58,10 @@ def custom_score(game, player):
     if opp_player_moves == 0 and game.active_player != player:
         return float("inf")
 
-    # Return the difference of moves between the active player moves and the opponent's.
-    opp_player_future_attack = [x  for x in player_legal_moves if x in opp_player_legal_moves]
-    return float(len(opp_player_future_attack)*2 + player_moves - opp_player_moves)
+    # Return the difference of moves between the active player moves and the opponent's
+    # having into consideration the spaces where both players overlap.
+    players_overlap = [x  for x in player_legal_moves if x in opp_player_legal_moves]
+    return float(len(players_overlap)*2 + player_moves - opp_player_moves)
 
 def easy_score(game, player):
     """Calculate the heuristic value of a game state from the point of view
