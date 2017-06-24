@@ -76,13 +76,36 @@ class SelectorBIC(ModelSelector):
         """
         warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-        # TODO implement model selection based on BIC scores
-        raise NotImplementedError
+        # Result model
+        result = None
+        
+        score = float('inf')
+        double_len_self_x_0 = 2 * len(self.X[0])
+        logN = np.log(len(self.X))
+        for component in range(self.min_n_components, self.max_n_components+1):
+            model = self.base_model(component)
+
+            # Ignore exception ValueError: rows of transmat_ must sum to 1.0 (got [ 1.  1.  1.  1.  0.  1.])
+            try:
+                logL = model.score(self.X, self.lengths)
+            except:
+                continue
+                
+            p = component * (component + double_len_self_x_0)
+            
+            # BIC = -2 * logL + p * logN
+            cur_score = -2 * logL + p * logN
+            if  score > cur_score:
+                score = cur_score
+                result = model
+
+        return result
+
+
 
 
 class SelectorDIC(ModelSelector):
     ''' select best model based on Discriminative Information Criterion
-
     Biem, Alain. "A model selection criterion for classification: Application to hmm topology optimization."
     Document Analysis and Recognition, 2003. Proceedings. Seventh International Conference on. IEEE, 2003.
     http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.58.6208&rep=rep1&type=pdf
@@ -92,17 +115,69 @@ class SelectorDIC(ModelSelector):
     def select(self):
         warnings.filterwarnings("ignore", category=DeprecationWarning)
 
-        # TODO implement model selection based on DIC scores
-        raise NotImplementedError
+        # Result model
+        result = None        
+        
+        score = float('-inf')
+        for component in range(self.min_n_components, self.max_n_components + 1):
+            model = self.base_model(component)
+            
+            # Ignore exception ValueError: rows of transmat_ must sum to 1.0 (got [ 1.  1.  1.  0.])
+            try:
+                log = model.score(self.X, self.lengths)
+            except:
+                continue
 
+            values = []
+            for hword in self.hwords:
+                X, lengths = self.hwords[hword]
+                values.append(model.score(X, lengths))
+
+            # Calculate scores only if the list is not empty
+            if values:
+                # DIC = log(P(X(i)) - 1/(M-1)SUM(log(P(X(all but i))    
+                cur_score = log - np.average(values)
+                if  cur_score > score:
+                    score = cur_score
+                    result = model
+                
+        return result
 
 class SelectorCV(ModelSelector):
     ''' select best model based on average log Likelihood of cross-validation folds
-
     '''
 
     def select(self):
         warnings.filterwarnings("ignore", category=DeprecationWarning)
+        
+        # Result model
+        result = None
+        
+        # Number of folds. Must be at least 2.
+        if len(self.sequences) < 2:
+            return result
+        
+        folds = 2 if len(self.sequences) == 2 else 3
 
-        # TODO implement model selection using CV
-        raise NotImplementedError
+        score = float('-inf')
+        for component in range(self.min_n_components, self.max_n_components + 1):
+            model = self.base_model(component)
+            
+            values = []      
+            for _, index in KFold(folds).split(self.sequences):        
+                X, lengths = combine_sequences(index, self.sequences)
+
+                # Ignore exception ValueError: rows of transmat_ must sum to 1.0 (got [ 1.  1.  1.  0.])
+                try:
+                    values.append(model.score(X, lengths))
+                except:
+                    continue
+
+            # Calculate scores only if the list is not empty
+            if values:
+                cur_score = np.mean(values)
+                if  cur_score > score:
+                    result = model
+                    score = cur_score
+
+        return result
