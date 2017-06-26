@@ -91,7 +91,7 @@ class SelectorBIC(ModelSelector):
             except:
                 continue
                 
-            p = component * (component + double_len_self_x_0)
+            p = component * component + 2 * component * len(self.X[0]) - 1
             
             # BIC = -2 * logL + p * logN
             cur_score = -2 * logL + p * logN
@@ -130,8 +130,9 @@ class SelectorDIC(ModelSelector):
 
             values = []
             for hword in self.hwords:
-                X, lengths = self.hwords[hword]
-                values.append(model.score(X, lengths))
+                if hword != self.this_word:
+                    X, lengths = self.hwords[hword]
+                    values.append(model.score(X, lengths))
 
             # Calculate scores only if the list is not empty
             if values:

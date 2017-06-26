@@ -11958,7 +11958,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">asl</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">98</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># look at the data available for an individual frame</span>
@@ -11974,47 +11974,37 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[137]:</div>
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/miguelangel/anaconda/envs/aind/lib/python3.6/site-packages/ipykernel_launcher.py:1: DeprecationWarning: 
+.ix is deprecated. Please use
+.loc for label based indexing or
+.iloc for positional indexing
+
+See the documentation here:
+http://pandas.pydata.org/pandas-docs/stable/indexing.html#deprecate_ix
+  &#34;&#34;&#34;Entry point for launching an IPython kernel.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>left-x                   149
-left-y                   181
-right-x                  170
-right-y                  175
-nose-x                   161
-nose-y                    62
-speaker              woman-1
-grnd-ry                  113
-grnd-rx                    9
-grnd-ly                  119
-grnd-lx                  -12
-left-x-mean          164.661
-left-y-mean          161.271
-right-x-mean         151.018
-right-y-mean         117.332
-left-x-std           17.5734
-left-y-std           26.5945
-right-x-std          16.4599
-right-y-std          34.6678
-norm-rx              1.15323
-norm-ry              1.66343
-norm-lx            -0.891199
-norm-ly             0.741835
-polar-rr             113.358
-polar-lr             119.604
-polar-rtheta       0.0794782
-polar-ltheta       -0.100501
-delta-rx                   0
-delta-ry                   0
-delta-lx                   0
-delta-ly                   0
-distance-x                21
-distance-y                -6
-norm-distance-x      264.643
-norm-distance-y     -35.2526
+<pre>left-x         149
+left-y         181
+right-x        170
+right-y        175
+nose-x         161
+nose-y          62
+speaker    woman-1
 Name: (98, 1), dtype: object</pre>
 </div>
 
@@ -13195,7 +13185,7 @@ feature sets.  The test simply looks for some valid values but is not exhaustive
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>....
 ----------------------------------------------------------------------
-Ran 4 tests in 0.015s
+Ran 4 tests in 0.013s
 
 OK
 </pre>
@@ -13281,7 +13271,7 @@ OK
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of states trained in model for BOOK is 3
-logL = -2331.113812743318
+logL = -2331.1138127433205
 </pre>
 </div>
 </div>
@@ -13332,16 +13322,16 @@ logL = -2331.113812743318
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of states trained in model for BOOK is 3
 hidden state #0
-mean =  [ -1.12415027  69.44164191  17.02866283  77.7231196 ]
-variance =  [ 19.70434594  16.83041492  30.51552305  11.03678246]
-
-hidden state #1
 mean =  [ -3.46504869  50.66686933  14.02391587  52.04731066]
 variance =  [ 49.12346305  43.04799144  39.35109609  47.24195772]
 
-hidden state #2
+hidden state #1
 mean =  [ -11.45300909   94.109178     19.03512475  102.2030162 ]
 variance =  [  77.403668    203.35441965   26.68898447  156.12444034]
+
+hidden state #2
+mean =  [ -1.12415027  69.44164191  17.02866283  77.7231196 ]
+variance =  [ 19.70434594  16.83041492  30.51552305  11.03678246]
 
 </pre>
 </div>
@@ -14977,7 +14967,7 @@ Train fold indices:[0 1] Test fold indices:[2]
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[82]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Implement SelectorCV in my_model_selector.py</span>
@@ -15012,11 +15002,11 @@ Train fold indices:[0 1] Test fold indices:[2]
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training complete for FISH with 5 states with time 0.31567332899976464 seconds
-Training complete for BOOK with 15 states with time 2.0079608369997004 seconds
-Training complete for VEGETABLE with 15 states with time 0.7851194000013493 seconds
-Training complete for FUTURE with 15 states with time 2.2078921549982624 seconds
-Training complete for JOHN with 15 states with time 20.42666291599926 seconds
+<pre>Training complete for FISH with 5 states with time 0.3079026420000446 seconds
+Training complete for BOOK with 15 states with time 1.8162735430000794 seconds
+Training complete for VEGETABLE with 15 states with time 0.6533479120002994 seconds
+Training complete for FUTURE with 15 states with time 1.9729190849998304 seconds
+Training complete for JOHN with 15 states with time 18.67623940300018 seconds
 </pre>
 </div>
 </div>
@@ -15027,7 +15017,7 @@ Training complete for JOHN with 15 states with time 20.42666291599926 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Implement SelectorBIC in module my_model_selectors.py</span>
@@ -15061,11 +15051,11 @@ Training complete for JOHN with 15 states with time 20.42666291599926 seconds
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training complete for FISH with 5 states with time 0.32184914800018305 seconds
-Training complete for BOOK with 8 states with time 1.902679837998221 seconds
-Training complete for VEGETABLE with 9 states with time 0.6633016260002478 seconds
-Training complete for FUTURE with 9 states with time 2.105749291000393 seconds
-Training complete for JOHN with 13 states with time 19.86724464100007 seconds
+<pre>Training complete for FISH with 5 states with time 0.3393308499998966 seconds
+Training complete for BOOK with 8 states with time 2.02164730100003 seconds
+Training complete for VEGETABLE with 9 states with time 0.7312975410000035 seconds
+Training complete for FUTURE with 9 states with time 2.1709178549999706 seconds
+Training complete for JOHN with 13 states with time 20.668775645000096 seconds
 </pre>
 </div>
 </div>
@@ -15076,7 +15066,7 @@ Training complete for JOHN with 13 states with time 19.86724464100007 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Implement SelectorDIC in module my_model_selectors.py</span>
@@ -15110,11 +15100,11 @@ Training complete for JOHN with 13 states with time 19.86724464100007 seconds
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training complete for FISH with 3 states with time 0.7752552600013587 seconds
-Training complete for BOOK with 15 states with time 3.8309556980002526 seconds
-Training complete for VEGETABLE with 15 states with time 3.0605707240010815 seconds
-Training complete for FUTURE with 15 states with time 3.929532242998903 seconds
-Training complete for JOHN with 15 states with time 20.922392668999237 seconds
+<pre>Training complete for FISH with 3 states with time 0.8589736880003329 seconds
+Training complete for BOOK with 15 states with time 3.9638587620002 seconds
+Training complete for VEGETABLE with 15 states with time 3.0590088239996476 seconds
+Training complete for FUTURE with 15 states with time 3.8655363389998456 seconds
+Training complete for JOHN with 15 states with time 21.36573123800008 seconds
 </pre>
 </div>
 </div>
@@ -15128,7 +15118,10 @@ Training complete for JOHN with 15 states with time 20.922392668999237 seconds
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong>  Compare and contrast the possible advantages and disadvantages of the various model selectors implemented.</p>
-<p><strong>Answer 2:</strong></p>
+<p><strong>Answer 2:</strong>
+In terms of speed, SelectorCV is the fastest and SelectorDIC the slowest.
+In terms of states, SelectorCV and SelectorDIC behaves almost equally, being SelectorBic the one with less states.</p>
+<p>For large datasets, I would stick to SelectorBIC, because of its accuracy at recognizing and the extra benefit of requiring less states.</p>
 
 </div>
 </div>
@@ -15145,7 +15138,7 @@ Training complete for JOHN with 15 states with time 20.922392668999237 seconds
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">asl_test_model_selectors</span> <span class="k">import</span> <span class="n">TestSelectors</span>
@@ -15169,7 +15162,7 @@ Training complete for JOHN with 15 states with time 20.922392668999237 seconds
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>....
 ----------------------------------------------------------------------
-Ran 4 tests in 38.675s
+Ran 4 tests in 37.827s
 
 OK
 </pre>
@@ -15178,7 +15171,7 @@ OK
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[101]:</div>
+<div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -15206,7 +15199,7 @@ OK
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># autoreload for automatically reloading changes made in my_model_selectors and my_recognizer</span>
@@ -15271,7 +15264,7 @@ Number of word models returned = 112
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_set</span> <span class="o">=</span> <span class="n">asl</span><span class="o">.</span><span class="n">build_test</span><span class="p">(</span><span class="n">features_ground</span><span class="p">)</span>
@@ -15316,7 +15309,7 @@ Number of test set sentences: 40
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO implement the recognize method in my_recognizer</span>
@@ -15331,7 +15324,7 @@ Number of test set sentences: 40
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Choose a feature set and model selector</span>
@@ -15414,7 +15407,7 @@ Video  Recognized                                                    Correct
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Choose a feature set and model selector</span>
@@ -15497,7 +15490,7 @@ Video  Recognized                                                    Correct
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO Choose a feature set and model selector</span>
@@ -15667,7 +15660,7 @@ Please find below the results:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">asl_test_recognizer</span> <span class="k">import</span> <span class="n">TestRecognize</span>
@@ -15691,7 +15684,7 @@ Please find below the results:</p>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>..
 ----------------------------------------------------------------------
-Ran 2 tests in 30.615s
+Ran 2 tests in 31.778s
 
 OK
 </pre>
@@ -15700,7 +15693,7 @@ OK
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[138]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -15734,7 +15727,7 @@ Good luck!  Share your results with the class!</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create a DataFrame of log likelihoods for the test word items</span>
@@ -15743,6 +15736,190 @@ Good luck!  Share your results with the class!</p>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[35]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ALL</th>
+      <th>ANN</th>
+      <th>APPLE</th>
+      <th>ARRIVE</th>
+      <th>BILL</th>
+      <th>BLAME</th>
+      <th>BLUE</th>
+      <th>BOOK</th>
+      <th>BORROW</th>
+      <th>BOX</th>
+      <th>...</th>
+      <th>VIDEOTAPE</th>
+      <th>VISIT</th>
+      <th>WANT</th>
+      <th>WHAT</th>
+      <th>WHO</th>
+      <th>WILL</th>
+      <th>WOMAN</th>
+      <th>WONT</th>
+      <th>WRITE</th>
+      <th>YESTERDAY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2484.074988</td>
+      <td>-41956.468452</td>
+      <td>-1652.469673</td>
+      <td>-228.912088</td>
+      <td>-1914.870126</td>
+      <td>-159.314704</td>
+      <td>-2787.022892</td>
+      <td>-1015.916185</td>
+      <td>-2424.605579</td>
+      <td>-341.326030</td>
+      <td>...</td>
+      <td>-552.266113</td>
+      <td>-142.780163</td>
+      <td>-761.870757</td>
+      <td>-281.525791</td>
+      <td>-184.447653</td>
+      <td>-1173.710978</td>
+      <td>-738.568305</td>
+      <td>-326.867230</td>
+      <td>-206.481946</td>
+      <td>-189.477866</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-6939.702319</td>
+      <td>-36160.004699</td>
+      <td>-2486.614481</td>
+      <td>-108.022948</td>
+      <td>-16939.812725</td>
+      <td>-126.607267</td>
+      <td>-2762.903680</td>
+      <td>-114.074038</td>
+      <td>-1216.645594</td>
+      <td>-415.721778</td>
+      <td>...</td>
+      <td>-112.303346</td>
+      <td>-278.727555</td>
+      <td>-784.880415</td>
+      <td>-380.672400</td>
+      <td>-111.169614</td>
+      <td>-4653.723059</td>
+      <td>-622.966748</td>
+      <td>-328.834602</td>
+      <td>-61.850441</td>
+      <td>-253.747237</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-9803.604767</td>
+      <td>-154469.113258</td>
+      <td>-4669.737685</td>
+      <td>-267.870878</td>
+      <td>-25629.382095</td>
+      <td>-282.328253</td>
+      <td>-7176.192625</td>
+      <td>-836.854608</td>
+      <td>-3107.285278</td>
+      <td>-748.764086</td>
+      <td>...</td>
+      <td>-528.898610</td>
+      <td>-493.033255</td>
+      <td>-1121.653348</td>
+      <td>-767.713670</td>
+      <td>-483.820318</td>
+      <td>-7148.515215</td>
+      <td>-1652.088447</td>
+      <td>-643.365494</td>
+      <td>-603.370964</td>
+      <td>-547.237434</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-937.270846</td>
+      <td>-466692.858336</td>
+      <td>-426.064992</td>
+      <td>-295.943658</td>
+      <td>-526.346339</td>
+      <td>-215.328547</td>
+      <td>-562.274277</td>
+      <td>-1114.689255</td>
+      <td>-2381.407150</td>
+      <td>-551.295410</td>
+      <td>...</td>
+      <td>-1530.448899</td>
+      <td>-117.942820</td>
+      <td>-5543.178867</td>
+      <td>-722.136840</td>
+      <td>-563.122959</td>
+      <td>-11768.135900</td>
+      <td>-194.551810</td>
+      <td>-117.215175</td>
+      <td>-2051.958947</td>
+      <td>-370.290973</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>-1352.262626</td>
+      <td>-227504.583968</td>
+      <td>-588.785641</td>
+      <td>-59.533034</td>
+      <td>-2726.599622</td>
+      <td>-54.556267</td>
+      <td>-140.806752</td>
+      <td>-160.733106</td>
+      <td>-317.665828</td>
+      <td>-43.947991</td>
+      <td>...</td>
+      <td>-136.120089</td>
+      <td>-50.432375</td>
+      <td>-511.502576</td>
+      <td>-50.702905</td>
+      <td>-208.319377</td>
+      <td>-5409.605656</td>
+      <td>-194.677316</td>
+      <td>-336.039267</td>
+      <td>-775.888802</td>
+      <td>-185.611454</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 112 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
