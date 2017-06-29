@@ -1,5 +1,5 @@
 # Solving a Sudoku with AI
-This repository contains the 'sudoku' project of the Udacity's [Artificial Intelligence NanoDegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
+This repository contains the 'sudoku' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
 ![Sudoku cover](https://raw.githubusercontent.com/miguelangel/artificial-intelligence--sudoku/master/cover.jpg)
 
