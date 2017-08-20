@@ -1,5 +1,5 @@
 # Implementing a Planning Search
-This repository contains the 'planning' project of the Udacity's [Artificial Intelligence NanoDegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
+This repository contains the 'planning' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
 ![Planning cover](https://github.com/miguelangel/artificial-intelligence-nanodegree--planning/raw/master/cover.jpg)
 
