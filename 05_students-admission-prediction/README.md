@@ -1,5 +1,9 @@
 # artificial-intelligence-nanodegree--students-admission
 
+source activate aind-dl
+
+. start.sh
+
 KERAS_BACKEND=tensorflow jupyter notebook Student_Admissions.ipynb
 
 In case of issues switching between Thensorflow and Theano backends, please have a look to:
