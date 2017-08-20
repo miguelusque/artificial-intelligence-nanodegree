@@ -3,4 +3,4 @@ This repository contains the 'sudoku' project of the Udacity's [Artificial Intel
 
 ![Sudoku cover](https://raw.githubusercontent.com/miguelangel/artificial-intelligence--sudoku/master/cover.jpg)
 
-*In this lesson, you'll get taste of the power of Artificial Intelligence by developing an algorithm to solve every Sudoku puzzle. We won't go particularly in depth into the techniques yet, which we'll do in future lessons. For now, enjoy the fun of building your first AI agent and get coding!*
+*In this lesson, you'll get taste of the power of Artificial Intelligence by developing an algorithm to solve every Sudoku puzzle. Enjoy the fun of building your first AI agent and get coding!*
