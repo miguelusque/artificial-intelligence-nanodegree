@@ -1,1 +1,1 @@
-KERAS_BACKEND=tensorflow jupyter notebook Student_Admissions.ipynb
+KERAS_BACKEND=tensorflow jupyter notebook IMDB_in_Keras.ipynb
