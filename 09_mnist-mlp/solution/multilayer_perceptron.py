@@ -1,12 +1,21 @@
+"""Multilayer perceptron example."""
+import time
+import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
+
+# Used to calculate execution time
+start = time.time()
+
+# Input data set
 mnist = input_data.read_data_sets(".", one_hot=True, reshape=False)
 
-import tensorflow as tf
+# Random seed set as a humble tribute to Michael Jordan
+tf.set_random_seed(23)
 
 # Parameters
 learning_rate = 0.001
 training_epochs = 20
-batch_size = 128  # Decrease batch size if you don't have enough memory
+batch_size = 32  # Decrease batch size if you don't have enough memory
 display_step = 1
 
 n_input = 784  # MNIST data input (img shape: 28*28)
@@ -63,8 +72,17 @@ with tf.Session() as sess:
 
     # Test model
     correct_prediction = tf.equal(tf.argmax(logits, 1), tf.argmax(y, 1))
+
     # Calculate accuracy
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+
     # Decrease test_size if you don't have enough memory
     test_size = 256
-    print("Accuracy:", accuracy.eval({x: mnist.test.images[:test_size], y: mnist.test.labels[:test_size]}))
+
+    accuracy_result = accuracy.eval(
+        {x: mnist.test.images[:test_size], y: mnist.test.labels[:test_size]})
+
+end = time.time()
+
+print("Accuracy:", accuracy_result)
+print("Execution time:", end - start)
