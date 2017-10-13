@@ -40,7 +40,7 @@ y = tf.placeholder("float", [None, n_classes])
 x_flat = tf.reshape(x, [-1, n_input])
 
 # Hidden layer with RELU activation
-layer_1 = tf.add(tf.matmul(x_flat, weights['hidden_layer']), biases['hidden_layer'])
+layer_1 = tf.matmul(x_flat, weights['hidden_layer']) + biases['hidden_layer']
 layer_1 = tf.nn.relu(layer_1)
 # Output layer with linear activation
 logits = tf.matmul(layer_1, weights['out']) + biases['out']
@@ -55,6 +55,7 @@ init = tf.global_variables_initializer()
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
+
     # Training cycle
     for epoch in range(training_epochs):
         total_batch = int(mnist.train.num_examples/batch_size)
