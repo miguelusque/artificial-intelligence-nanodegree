@@ -1,10 +1,11 @@
-
 # Solving a Sudoku with AI
 This repository contains the 'sudoku' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
 ![Sudoku cover](https://raw.githubusercontent.com/miguelangel/artificial-intelligence--sudoku/master/cover.jpg)
 
-In this project, it will be implemented two different techniques and an AI agent to solve the Sudoku game.
+In this project, an AI will be implemented to solve the Sudoku game.
+
+The agent will make use of the following techniques:
 
 ## Technique 1: Naked Twins
 Q: How do we use constraint propagation to solve the naked twins problem?
