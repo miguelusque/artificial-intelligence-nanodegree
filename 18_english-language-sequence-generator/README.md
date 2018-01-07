@@ -6,7 +6,7 @@ This repository contains the 'English language sequence generator' project of th
 ![English Language Sequence Generator](cover.png)
 
 ## Project Overview
-In this project it will be built a RNNs that can generate sequences based on input data. The RNN will be trained on Sir Arthur Conan Doyle's classic novel Sherlock Holmes and will generate wacky sentences based on it that may - or may not - become the next great Sherlock Holmes novel!
+In this project it will be built a RNN that can generate sequences based on input data. The RNN will be trained on Sir Arthur Conan Doyle's classic novel Sherlock Holmes and will generate wacky sentences based on it that may - or may not - become the next great Sherlock Holmes novel!
 
 ## Install
 
