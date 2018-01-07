@@ -1,7 +1,7 @@
 # Implementing a Planning Search
 This repository contains the 'planning' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
-![Planning cover](https://github.com/miguelangel/artificial-intelligence-nanodegree--planning/raw/master/cover.jpg)
+![Planning cover](https://github.com/miguelangel/ai--planning/raw/master/cover.jpg)
 
 This project includes skeletons for the classes and functions needed to solve deterministic logistics planning problems for an Air Cargo transport system using a planning search agent.
 With progression search algorithms like those in the navigation problem from lecture, optimal plans for each
