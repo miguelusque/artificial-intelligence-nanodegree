@@ -3,7 +3,7 @@ This repository contains the 'sudoku' project of the Udacity's [Artificial Intel
 
 ![Sudoku cover](https://raw.githubusercontent.com/miguelangel/artificial-intelligence--sudoku/master/cover.jpg)
 
-In this project, an AI will be implemented to solve the Sudoku game.
+In this project, an AI agent will be implemented to solve the Sudoku game.
 
 The agent will make use of the following techniques:
 
