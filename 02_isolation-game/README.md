@@ -2,11 +2,11 @@
 # Building a Game-playing Agent
 This repository contains the 'isolation' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
-![Isolation cover](https://github.com/miguelangel/artificial-intelligence-nanodegree--isolation/raw/master/cover.jpg)
+![Isolation cover](https://github.com/miguelangel/ai--isolation-game-agent/raw/master/cover.jpg)
 
 ## Synopsis
 
-In this project, students will develop an adversarial search agent to play the game "Isolation".
+In this project it will be built an adversarial search agent to play the game "Isolation".
 
 Isolation is a deterministic, two-player game of perfect information in which the players alternate turns moving a single piece from one cell to another on a board.  Whenever either player occupies a cell, that cell becomes blocked for the remainder of the game.  The first player with no remaining legal moves loses, and the opponent is declared the winner.
 
@@ -14,7 +14,7 @@ This project uses a version of Isolation where each agent is restricted to L-sha
 
 Additionally, agents will have a fixed time limit each turn to search for the best move and respond.  If the time limit expires during a player's turn, that player forfeits the match, and the opponent wins.
 
-These rules are implemented in the `isolation.Board` class provided in the repository. 
+These rules are implemented in the `isolation.Board` class provided in the repository.
 
 
 ## Quickstart Guide
@@ -71,3 +71,7 @@ The tournament opponents are listed below. (See also: sample heuristics and play
 - AB_Null: CustomPlayer agent using fixed-depth alpha-beta search and the null_score heuristic
 - AB_Open: CustomPlayer agent using fixed-depth alpha-beta search and the open_move_score heuristic
 - AB_Improved: CustomPlayer agent using fixed-depth alpha-beta search and the improved_score heuristic
+
+### Results
+
+Project results can be found ![here](https://github.com/miguelangel/ai--isolation-game-agent/raw/master/results/Isolation%20Game%20Agent.pdf).
