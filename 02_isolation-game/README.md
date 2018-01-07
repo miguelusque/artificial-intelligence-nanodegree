@@ -74,4 +74,4 @@ The tournament opponents are listed below. (See also: sample heuristics and play
 
 ### Results
 
-Project results can be found ![here](https://github.com/miguelangel/ai--isolation-game-agent/raw/master/results/Isolation%20Game%20Agent.pdf).
+Project results can be found [here](https://github.com/miguelangel/ai--isolation-game-agent/raw/master/results/Isolation%20Game%20Agent.pdf).
