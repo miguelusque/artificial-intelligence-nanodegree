@@ -13,6 +13,6 @@ In this project it will be built a RNNs that can generate sequences based on inp
  1. Download the necessary Python modules:
 > pip install -r requirements.txt
  2. Open the notebook:
-> jupyter notebook english_language_sequence_generator.ipyn
+> jupyter notebook english_language_sequence_generator.ipynb
 
 I really hope you enjoy it!
