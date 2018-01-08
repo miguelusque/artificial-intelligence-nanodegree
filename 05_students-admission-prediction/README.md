@@ -1,4 +1,14 @@
-# aind2-dl
+# Students Admission Prediction
+
+This repository contains the 'studnets admission prediction' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
+
+## Project Overview
+In this project it will be built a Multilayer Perceptron (MLP) that can predict student admissions to graduate school at UCLA based on three pieces of data:
+GRE Scores (Test)
+GPA Scores (Grades)
+Class rank (1-4)
+
+
 
 ### Instructions
 
