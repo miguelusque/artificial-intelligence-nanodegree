@@ -3,7 +3,7 @@
 
 This repository contains the 'imdb sentiment analysis' project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
 
-![IMDB Sentiment Analysis](cover.jpg)
+![IMDB Sentiment Analysis](cover.png)
 
 ## Project Overview
 In this project, a dataset from [IMDB](http://www.imdb.com/) will be used to train a Multilayer Perceptron Network (MLP) to predict the sentiment analysis of a review.
