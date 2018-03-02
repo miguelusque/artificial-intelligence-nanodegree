@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 """
-    Skeleton code for k-means clustering project.
+    K-means clustering project.
 """
 
 import pickle
@@ -10,9 +10,6 @@ import matplotlib.pyplot as plt
 import sys
 sys.path.append("./tools/")
 from feature_format import featureFormat, targetFeatureSplit
-
-
-
 
 def Draw(pred, features, poi, mark_poi=False, name="image.png", f1_name="feature 1", f2_name="feature 2"):
     """ some plotting code designed to help you visualize your clusters """
@@ -61,13 +58,16 @@ plt.show()
 
 ### cluster here; create predictions of the cluster labels
 ### for the data and store them to a list called pred
+from sklearn.cluster import KMeans
+clf=KMeans(n_clusters=2).fit(finance_features)
 
+pred=clf.predict(finance_features)
 
 
 
 ### rename the "name" parameter when you change the number of features
 ### so that the figure gets saved to a different file
 try:
-    Draw(pred, finance_features, poi, mark_poi=False, name="clusters.pdf", f1_name=feature_1, f2_name=feature_2)
+    Draw(pred, finance_features, poi, mark_poi=False, name="2-clusters.pdf", f1_name=feature_1, f2_name=feature_2)
 except NameError:
     print "no predictions object named pred found, no clusters to plot"
