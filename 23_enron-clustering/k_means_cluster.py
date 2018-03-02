@@ -53,6 +53,11 @@ eso = eso[eso > 0]
 print 'MAX: {}, MIN: {}'.format(numpy.max(eso), numpy.min(eso))
 
 
+# Calculate max and min for 'salary'
+salary = numpy.array(finance_features)[:, 0]
+salary = salary[salary > 0]
+print 'MAX: {}, MIN: {}'.format(numpy.max(salary), numpy.min(salary))
+
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to
 ### for f1, f2, _ in finance_features:
