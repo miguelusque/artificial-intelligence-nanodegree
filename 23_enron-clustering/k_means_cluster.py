@@ -37,7 +37,6 @@ data_dict = pickle.load( open("./dataset/project_dataset.pkl", "r") )
 ### there's an outlier--remove it!
 data_dict.pop("TOTAL", 0)
 
-
 ### the input features we want to use
 ### can be any key in the person-level dictionary (salary, director_fees, etc.)
 feature_1 = "salary"
@@ -47,6 +46,11 @@ poi  = "poi"
 features_list = [poi, feature_1, feature_2, feature_3]
 data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
+
+# Calculate max and min for 'exercised_stock_options'
+eso = numpy.array(finance_features)[:, 1]
+eso = eso[eso > 0]
+print 'MAX: {}, MIN: {}'.format(numpy.max(eso), numpy.min(eso))
 
 
 ### in the "clustering with 3 features" part of the mini-project,
