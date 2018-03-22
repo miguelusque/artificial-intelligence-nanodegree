@@ -1,3 +1,10 @@
+# Machine translation - English to French
+
+This repository contains the 'Machine translation' capstone project of the Udacity's [Artificial Intelligence Nanodegree](https://www.udacity.com/course/artificial-intelligence-nanodegree--nd889).
+
+![Machine translation](cover.jpg)
+
+
 # Introduction
 In this notebook, you will build a deep neural network that functions as part of an end-to-end machine translation pipeline. Your completed pipeline will accept English text as input and return the French translation.
 
